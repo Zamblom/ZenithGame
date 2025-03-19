@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenithGame</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            height: calc(100vh - 2vmin);
+            width: calc(100vw - 2vmin);
+            display: flex;
+            flex-direction: row;
+            margin: 1vmin;
+            overflow: hidden;
+            gap: 1vmin;
+        }
+
+        #gene-lock {
+            height: 100%;
+            width: 35%;
+            border: 1px solid green;
+        }
+
+        #gene-strips {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            gap: 2%;
+            align-items: center;
+        }
+
+        .gene-strip {
+            flex-grow: 1;
+            display: grid;
+            grid-template-rows: min-content min-content;
+            position: relative;
+            top: 0;
+            opacity: 1;
+            transition: top .5s ease-in, opacity .5s ease-in;
+            
+            > * {
+                text-align: center;
+            }
+
+            > .strip-name {
+                width: 30%;
+                height: 2em;
+                position: relative;
+                transform: translateX(-50%);
+                background-color: #555;
+                -webkit-clip-path: polygon(10% 0%, 90% 0%, 99% 100%, 1% 100%);
+                clip-path: polygon(10% 0%, 90% 0%, 99% 100%, 1% 100%);
+                border-radius: 22% 22% 0 0;
+                
+                > h1 {
+                    position: relative;
+                    transform: translateY(-55%);
+                    background-color: #bbb;
+                    -webkit-clip-path: polygon(15% 5%, 85% 5%, 95% 95%, 5% 95%);
+                    clip-path: polygon(15% 5%, 85% 5%, 95% 95%, 5% 95%);
+                }
+            }
+
+            > .strip-content {
+                border: 2px solid #555;
+                border-radius: 2px;
+            }
+        }
+
+        .gene-strip:nth-child(1) > .strip-name {left: 16%;}
+        .gene-strip:nth-child(2) > .strip-name {left: 32%;}
+        .gene-strip:nth-child(3) > .strip-name {left: 50%;}
+        .gene-strip:nth-child(4) > .strip-name {left: 68%;}
+        .gene-strip:nth-child(5) > .strip-name {left: 84%;}
+    </style>
+</head>
+<body>
+    <div id="gene-lock"></div>
+    <div id="gene-strips">
+        <div id="strip-a" class="gene-strip">
+            <div class="strip-name"><h1>A</h1></div>
+            <div class="strip-content">
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+            </div>
+        </div>
+        <div id="strip-b" class="gene-strip">
+            <div class="strip-name"><h1>B</h1></div>
+            <div class="strip-content">
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+            </div>
+        </div>
+        <div id="strip-c" class="gene-strip">
+            <div class="strip-name"><h1>C</h1></div>
+            <div class="strip-content">
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+            </div>
+        </div>
+        <div id="strip-d" class="gene-strip">
+            <div class="strip-name"><h1>D</h1></div>
+            <div class="strip-content">
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+            </div>
+        </div>
+        <div id="strip-e" class="gene-strip">
+            <div class="strip-name"><h1>E</h1></div>
+            <div class="strip-content">
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+                <p>I</p>
+                <p>T</p>
+                <p>H</p>
+                <p>Z</p>
+                <p>E</p>
+                <p>N</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const geneStripsEl = document.getElementById("gene-strips");
+
+    window.addEventListener("load", () => {
+        [...geneStripsEl.children].forEach((el) => {
+            el.style.top = "-100%";
+            el.style.opacity = "0";
+        });
+    })
+</script>
+</html>
