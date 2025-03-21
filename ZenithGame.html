@@ -22,8 +22,33 @@
 
         #gene-lock {
             height: 100%;
-            width: 35%;
             border: 1px solid green;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        #lock-hints {
+            width: 10em;
+        }
+
+        #lock-strips {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            gap: 1px;
+            align-items: center;
+        }
+
+        .lock-strip {
+            .name {
+                font-size: .7em;
+                width: 2rem;
+            }
+
+            .content {
+                width: 2em;
+            }
         }
 
         #gene-strips {
@@ -43,31 +68,15 @@
             opacity: 1;
             transition: top .5s ease-in, opacity .5s ease-in;
             
-            > * {
-                text-align: center;
-            }
-
-            > .strip-name {
+            .name {
                 width: 30%;
-                height: 2em;
-                position: relative;
-                transform: translateX(-50%);
-                background-color: #555;
-                -webkit-clip-path: polygon(10% 0%, 90% 0%, 99% 100%, 1% 100%);
-                clip-path: polygon(10% 0%, 90% 0%, 99% 100%, 1% 100%);
-                border-radius: 22% 22% 0 0;
-                
-                > h1 {
-                    position: relative;
+
+                h1 {
                     transform: translateY(-55%);
-                    background-color: #bbb;
-                    -webkit-clip-path: polygon(15% 5%, 85% 5%, 95% 95%, 5% 95%);
-                    clip-path: polygon(15% 5%, 85% 5%, 95% 95%, 5% 95%);
                 }
             }
-
-            > .strip-content {
-                border: 2px solid #555;
+            
+            .content {
                 border-radius: 2px;
             }
         }
@@ -77,109 +86,273 @@
         .gene-strip:nth-child(3) > .strip-name {left: 50%;}
         .gene-strip:nth-child(4) > .strip-name {left: 68%;}
         .gene-strip:nth-child(5) > .strip-name {left: 84%;}
+
+        .name {
+            height: 2em;
+            position: relative;
+            background-color: #555;
+            -webkit-clip-path: polygon(10% 0%, 90% 0%, 99% 100%, 1% 100%);
+            clip-path: polygon(10% 0%, 90% 0%, 99% 100%, 1% 100%);
+            border-radius: 22% 22% 0 0;
+            
+            h1 {
+                position: relative;
+                background-color: #bbb;
+                -webkit-clip-path: polygon(15% 5%, 85% 5%, 95% 95%, 5% 95%);
+                clip-path: polygon(15% 5%, 85% 5%, 95% 95%, 5% 95%);
+                text-align: center;
+            }
+        }
+
+        .content {
+            border: 2px solid #555;
+
+            p {
+                line-height: 1em;
+                height: 1em;
+                font-size: 1em;
+                margin: 0;
+                text-align: center;
+            }
+
+            p:hover {
+                background-color: #bbb;
+            }
+
+            hr {
+                margin: 0;
+            }
+        }
+
+        hr:last-child {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div id="gene-lock"></div>
+    <div id="gene-lock">
+        <div id="lock-hints">
+            <div style="height: 2.2em;"></div>
+            <div class="content">
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p>
+            </div>
+        </div>
+        <div id="lock-strips">
+            <div id="lock-1" class="lock-strip">
+                <div class="name"><h1>1</h1></div>
+                <div class="content">
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                </div>
+            </div>
+            <div id="lock-2" class="lock-strip">
+                <div class="name"><h1>2</h1></div>
+                <div class="content">
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                </div>
+            </div>
+            <div id="lock-3" class="lock-strip">
+                <div class="name"><h1>3</h1></div>
+                <div class="content">
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                </div>
+            </div>
+            <div id="lock-4" class="lock-strip">
+                <div class="name"><h1>4</h1></div>
+                <div class="content">
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                </div>
+            </div>
+            <div id="lock-5" class="lock-strip">
+                <div class="name"><h1>5</h1></div>
+                <div class="content">
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                    <p>I</p><hr>
+                    <p>T</p><hr>
+                    <p>H</p><hr>
+                    <p>Z</p><hr>
+                    <p>E</p><hr>
+                    <p>N</p><hr>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="gene-strips">
         <div id="strip-a" class="gene-strip">
-            <div class="strip-name"><h1>A</h1></div>
-            <div class="strip-content">
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
+            <div class="name"><h1>A</h1></div>
+            <div class="content">
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
             </div>
         </div>
         <div id="strip-b" class="gene-strip">
-            <div class="strip-name"><h1>B</h1></div>
-            <div class="strip-content">
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
+            <div class="name"><h1>B</h1></div>
+            <div class="content">
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
             </div>
         </div>
         <div id="strip-c" class="gene-strip">
-            <div class="strip-name"><h1>C</h1></div>
-            <div class="strip-content">
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
+            <div class="name"><h1>C</h1></div>
+            <div class="content">
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
             </div>
         </div>
         <div id="strip-d" class="gene-strip">
-            <div class="strip-name"><h1>D</h1></div>
-            <div class="strip-content">
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
+            <div class="name"><h1>D</h1></div>
+            <div class="content">
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
             </div>
         </div>
         <div id="strip-e" class="gene-strip">
-            <div class="strip-name"><h1>E</h1></div>
-            <div class="strip-content">
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
-                <p>I</p>
-                <p>T</p>
-                <p>H</p>
-                <p>Z</p>
-                <p>E</p>
-                <p>N</p>
+            <div class="name"><h1>E</h1></div>
+            <div class="content">
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
+                <p>I</p><hr>
+                <p>T</p><hr>
+                <p>H</p><hr>
+                <p>Z</p><hr>
+                <p>E</p><hr>
+                <p>N</p><hr>
             </div>
         </div>
     </div>
@@ -188,10 +361,10 @@
     const geneStripsEl = document.getElementById("gene-strips");
 
     window.addEventListener("load", () => {
-        [...geneStripsEl.children].forEach((el) => {
-            el.style.top = "-100%";
-            el.style.opacity = "0";
-        });
+        // [...geneStripsEl.children].forEach((el) => {
+        //     el.style.top = "-100%";
+        //     el.style.opacity = "0";
+        // });
     })
 </script>
 </html>
